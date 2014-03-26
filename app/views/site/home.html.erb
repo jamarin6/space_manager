@@ -6,15 +6,16 @@
 <h2>Sign in</h2>
 
 <%= form_for(:user, :url => session_path(:user)) do |f| %>
-  <div><%= f.label :email %><br />
+  <div class="large-3 columns"><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <div><%= f.label :password %><br />
+  <div class="large-3 columns"><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
-  
+  <br />
+  <br />
 
-  <div><%= f.submit "Sign in" %></div>
+ <p><%= f.submit "Sign in", class: "button" %></p>
 <% end %>
-
+ 
 <%= link_to "Sign up", new_user_registration_path %>
