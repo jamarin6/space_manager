@@ -16,9 +16,13 @@ class ReservationsController < ApplicationController
 		
 	end
 
-	def update
-		
-	end
+	#def update
+	#	if @reservation.update update_params
+	#		redirect_to @reservation, notice: "#{@reservation.id_space}"
+	#	else
+	#		render "edit"
+	#	end
+	#end
 
 	def show
 		@reservations = Reservation.all
