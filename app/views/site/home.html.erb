@@ -2,3 +2,19 @@
 <p>app/views/site/home.html.erb</p>
 
 <h1>Your new Space Manager</h1>
+
+<h2>Sign in</h2>
+
+<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  
+
+  <div><%= f.submit "Sign in" %></div>
+<% end %>
+
+<%= link_to "Sign up", new_user_registration_path %>

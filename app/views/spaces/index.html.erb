@@ -1,0 +1,12 @@
+<h1>lista de spaces</h1>
+
+<% if @spaces.empty? %>
+	NO TIENES NINGUN ESPACIO
+	<%= link_to "Create a new space", new_space_path %>
+<% else %>
+	<ul>
+		<% @spaces.each do |space| %>
+			<li> <%= space.name %> </li>
+		<% end %>
+	</ul> 
+<% end %>
