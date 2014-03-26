@@ -3,4 +3,8 @@ class SpacesController < ApplicationController
 	def index
 		@spaces = current_user.spaces
 	end
+
+	def incidences
+		pusts "XXXXXXXXXX"
+	end
 end

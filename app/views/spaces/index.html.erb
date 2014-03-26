@@ -1,7 +1,7 @@
-<h1>lista de spaces</h1>
+<h1>space list</h1>
 
 <% if @spaces.empty? %>
-	NO TIENES NINGUN ESPACIO
+	YOU DON´T HAVE ANY SPACE
 	<%= link_to "Create a new space", new_space_path %>
 <% else %>
 	<ul>
@@ -9,4 +9,12 @@
 			<li> <%= space.name %> </li>
 		<% end %>
 	</ul> 
+	
+
 <% end %>
+
+<br>
+<br>
+<br>
+
+<%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Incidences", reservations_incidences_path %>

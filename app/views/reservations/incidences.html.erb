@@ -1,0 +1,13 @@
+<h1>List of incidences</h1>
+
+<ul>
+	<% @reservations.each do |reservation| %>
+		<li> Sala  <%= reservation.incidences %> Date: <%= reservation.date %> Hour: <%= reservation.hour %> - <%= link_to "delete", delete_incidence_path(reservation) %></li>
+	<% end %>
+</ul> 
+
+<br>
+<br>
+<br>
+
+<%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Visuality spaces", spaces_path %>
