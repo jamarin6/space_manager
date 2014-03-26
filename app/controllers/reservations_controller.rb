@@ -9,4 +9,18 @@ class ReservationsController < ApplicationController
 		@reservation.save
 		redirect_to reservations_incidences_path
 	end
+
+	def create_incidence
+		@reservation = Reservation.find(params[:id])
+
+		
+	end
+
+	def update
+		
+	end
+
+	def show
+		@reservations = Reservation.all
+	end
 end

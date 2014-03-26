@@ -1,0 +1,25 @@
+<!--  space_reservation GET    /spaces/:space_id/reservations/:id(.:format)      reservations#show  -->
+
+<h1>----INFO----</h1>
+
+<% if @reservations.empty? %>
+
+	<h2>Reservations empty</h2>
+
+<% else %>
+
+	<ul>
+		<% @reservations.each do |reservation| %>
+			<li> Sala: <%= reservation.id_space %> - Date: <%= reservation.date %>
+			   - Occupy by: <%= reservation.customer %> 
+			   	Incidence: <%= reservation.incidences %> 
+			</li>
+		<% end %>
+	</ul> 
+
+	<br>
+	<br>
+	<br>
+<% end %>
+
+<%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Incidences", reservations_incidences_path %> - <%= link_to "Visuality spaces", spaces_path %>
