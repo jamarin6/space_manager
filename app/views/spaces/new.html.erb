@@ -1,5 +1,22 @@
 <h1>nuevo espacio</h1>
 
+<%= form_for @space do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name, size: 4 %>
+	<br>
+	<%= f.label :start_at %>
+	<%= f.time_field :start_at, size: 4 %>
+	<br>
+	<%= f.label :end_at %>
+	<%= f.time_field :end_at, size: 4%>
+	<br>
+
+	<%= f.submit 'Save' %>
+	<%= link_to 'Cancel', root_path %>
+<% end %>
+
+
+
 <% 9.upto(21) do |i| %>
 	<%= i %>:00 - <%= i+1 %>:00 <br>
 <% end %>
