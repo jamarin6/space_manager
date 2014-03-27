@@ -1,21 +1,22 @@
 <p>'site#home'</p>
 <p>app/views/site/home.html.erb</p>
 
-<h1>Your new Space Manager</h1>
+<h1 class= "content-text">Your new Space Manager</h1>
 
-<h2>Sign in</h2>
+<h2 class= "content-text">Sign in</h2>
 
 <%= form_for(:user, :url => session_path(:user)) do |f| %>
   <div class="large-3 columns"><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true %></div>
 
-  <div class="large-3 columns"><%= f.label :password %><br />
+  <div class="large-2 columns"><%= f.label :password %><br />
   <%= f.password_field :password %></div>
 
   <br />
   <br />
 
- <p><%= f.submit "Sign in", class: "button" %></p>
+ <p><%= f.submit "Sign in", class: "small round button" %></p>
 <% end %>
+
  
-<%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Sign up", new_user_registration_path, class: "content-text" %> 

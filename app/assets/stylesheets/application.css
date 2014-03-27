@@ -13,3 +13,7 @@
  
  *= require_tree .
  */
+
+.content-text {
+	margin-left: 20px;
+}
