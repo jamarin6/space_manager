@@ -21,11 +21,29 @@ class SpacesController < ApplicationController
 		params.require(:space).permit(:name, :start_at, :end_at)
 	end
 
+	def destroy
+		@space = current_user.space.find params[:id]
+		redirect_to spaces_path
+	end
+
+	#def destroy
+	#	@project = Project.find params[:project_id]
+	#	@entry = @project.entries.find params[:id]
+	#
+	#	if @entry.destroy
+	#	flash[:notice] = 'Project delete successfully'
+	#		redirect_to project_entries_path(@project)
+	#	else
+	#		flash[:alert] = "Project hasn't been deleted"
+	#		render 'new'
+	#	end
+	#end
+
 
 	#def create
 	#	@project = Project.find params[:project_id]
 	#	@entry = @project.entries.new entry_params
-#
+	#
 	#	if @entry.save
 	#		flash[:notice] = 'Project created successfully'
 	#		#redirect_to project_entries_path(@project.id) #action: 'index', controller: 'entries', project_id: @project.id
