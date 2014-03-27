@@ -1,0 +1,39 @@
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <a href="localhost:3000"><img src="smiley.gif" alt="HTML tutorial" width="42" height="42"></a>
+    <!--  
+    <a href="site#home"><img src="smiley.gif" alt="HTML tutorial" width="42" height="42"></a>
+    -->
+
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+
+      <% if current_user %>
+        
+        <li class="has-dropdown">
+          <a href="#">Go to</a>
+          <ul class="dropdown">
+            <li><a href="spaces#index">Visuality</a></li>
+            <li><a href="spaces#new">Edit space</a></li>
+            <li><a href="reservations#incidences">Incidences</a></li>
+          </ul>
+        </li>
+
+      <% else %>
+        <li class="active"><a href="site#home">SignIn</a></li>
+        <li class="active"><a href="devise/registrations#new">SignUp</a></li>
+      <% end %>
+
+    </ul>
+
+    <!-- Left Nav Section 
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>                   -->
+  </section>
+</nav>
