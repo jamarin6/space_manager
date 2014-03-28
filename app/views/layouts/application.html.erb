@@ -38,7 +38,7 @@
           <a href="#">Go to</a>
           <ul class="dropdown">
             <li><a href="/spaces">Visuality</a></li>
-            <li><a href="/spaces/new">Edit space</a></li>
+            <li><a href="/spaces/new">NewSpace</a></li>
             <li><a href="/reservations/incidences">Incidences</a></li>
           </ul>
         </li>
@@ -61,7 +61,7 @@
 
     <%  if current_user %>
       <%= link_to "Exit", destroy_user_session_path, method: :delete %><br>
-      <%= link_to "VisualityMySpaces", spaces_path %>
+      <%= link_to "Visuality", spaces_path %>
     <% end %>
 
     <%= yield %>

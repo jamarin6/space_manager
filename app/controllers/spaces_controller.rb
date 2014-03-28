@@ -22,7 +22,8 @@ class SpacesController < ApplicationController
 	end
 
 	def destroy
-		@space = current_user.space.find params[:id]
+		@space = current_user.spaces.find params[:id]
+		@space.destroy
 		redirect_to spaces_path
 	end
 
