@@ -1,4 +1,11 @@
 class ReservationsController < ApplicationController
+	before_filter :authenticate_user!
+
+	def new
+		return unless current_user.owner_of? params[:space_id]
+		@reservation = Reservation.new(space_id: params[:space_id], hour: params[:hour], date: params[:date])
+	end
+
 	def incidences
 		@reservations = Reservation.all
 	end
@@ -12,8 +19,6 @@ class ReservationsController < ApplicationController
 
 	def create_incidence
 		@reservation = Reservation.find(params[:id])
-
-		
 	end
 
 	#def update

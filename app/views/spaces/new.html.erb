@@ -5,10 +5,10 @@
 	<%= f.text_field :name, size: 4 %>
 	<br>
 	<%= f.label :start_at %>
-	<%= f.time_field :start_at, size: 4 %>
+	<%= f.select :start_at, (0..23).to_a %>
 	<br>
 	<%= f.label :end_at %>
-	<%= f.time_field :end_at, size: 4%>
+	<%= f.select :end_at, (0..23).to_a%>
 	<br>
 
 	<%= f.submit 'Save', class: "small round button" %>

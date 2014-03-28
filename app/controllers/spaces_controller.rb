@@ -2,10 +2,19 @@ class SpacesController < ApplicationController
 	before_filter :authenticate_user!
 	def index
 		@spaces = current_user.spaces
+		@day = Date.today 
+		reserv = Reservation.where(date: @day, space_id: @spaces.map(&:id))
+		@reservations = {}
+		@spaces.each {|s| @reservations[s.id] = []}
+
+		reserv.each do |r|
+			@reservations[r.space_id] << r.hour
+		end
+
 	end
 
 	def incidences
-		pusts "XXXXXXXXXX"
+		puts "XXXXXXXXXX"
 	end
 
 	def new
@@ -26,6 +35,8 @@ class SpacesController < ApplicationController
 		@space.destroy
 		redirect_to spaces_path
 	end
+
+
 
 	#def destroy
 	#	@project = Project.find params[:project_id]
