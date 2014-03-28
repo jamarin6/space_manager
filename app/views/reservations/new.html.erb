@@ -1,0 +1,12 @@
+<h1>Create Reserve</h1>
+
+<%= @space.name  %>
+
+<%= form_for [@space, @reservation] do |f| %>
+	<%= f.label :customer %>
+	<%= f.text_field :customer, size: 4 %>
+	<br>
+
+	<%= f.submit 'Save', class: "small round button" %>
+	<%= link_to 'Cancel', spaces_path %>
+<% end %>

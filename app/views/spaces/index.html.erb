@@ -6,19 +6,22 @@
 <% else %>
 	<ul>
 		<% @spaces.each do |space| %>
-			<li> <%= space.name %> 
-				<table><tr>
+			<li> <%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %>
+				<table>
+				  <tr>
 					<% space.start_at.upto(space.end_at) do |i| %>
 						<% if @reservations[space.id].include?(i) %>
 							<td style="color:red">info
 						<% else %>
-							<td style="color:green">occupy
+							<td style="color:green"><%= link_to "occupy", new_space_reservation_path(space.id) %>
 						<% end %>
 						<br><%= i %>:00 - <%= i+1 %>:00</td>
 					<% end %>
-				</tr></table>
 
-			<%= link_to " -Delete", space_path(space.id), method: :delete %></li><br>
+				  </tr>
+				</table>
+			</li>
+			
 		<% end %>
 	</ul> 
 	

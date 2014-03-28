@@ -2,8 +2,14 @@ class ReservationsController < ApplicationController
 	before_filter :authenticate_user!
 
 	def new
-		return unless current_user.owner_of? params[:space_id]
-		@reservation = Reservation.new(space_id: params[:space_id], hour: params[:hour], date: params[:date])
+		@space = Space.find(params[:space_id])
+		@reservation = Reservation.new
+	end
+
+	def create
+		@space = Space.find(params[:space_id])
+		@space.reservations.create reservation_params
+		redirect_to spaces_path
 	end
 
 	def incidences
@@ -21,15 +27,12 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.find(params[:id])
 	end
 
-	#def update
-	#	if @reservation.update update_params
-	#		redirect_to @reservation, notice: "#{@reservation.id_space}"
-	#	else
-	#		render "edit"
-	#	end
-	#end
-
 	def show
 		@reservations = Reservation.all
+	end
+
+	private
+	def reservation_params
+		params.require(:reservation).permit(:space_id, :hour, :date)
 	end
 end
