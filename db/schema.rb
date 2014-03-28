@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326123329) do
+ActiveRecord::Schema.define(version: 20140328095601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140326123329) do
   add_index "reservations", ["space_id"], name: "index_reservations_on_space_id", using: :btree
 
   create_table "spaces", force: true do |t|
-    t.time     "start_at"
-    t.time     "end_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "user_id"
+    t.integer  "start_at"
+    t.integer  "end_at"
   end
 
   create_table "users", force: true do |t|
