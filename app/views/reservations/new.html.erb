@@ -1,10 +1,16 @@
 <h1>Create Reserve</h1>
 
-<%= @space.name  %>
+<%= @reservation.space.name  %>
 
-<%= form_for [@space, @reservation] do |f| %>
+<%= form_for [@reservation.space, @reservation] do |f| %>
 	<%= f.label :customer %>
-	<%= f.text_field :customer, size: 4 %>
+	<%= f.text_field :customer %>
+	<br>
+	<%= f.label :date %>
+	<%= f.text_field :date %>
+	<br>
+	<%= f.label :hour %>
+	<%= f.text_field :hour %>
 	<br>
 
 	<%= f.submit 'Save', class: "small round button" %>
