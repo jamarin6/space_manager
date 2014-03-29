@@ -14,4 +14,10 @@
  *= require_tree .
  */
 
+.center {
+	position:absolute;
+	left:600px;
+	top:0px;
+	width: 30%;
+}
 
