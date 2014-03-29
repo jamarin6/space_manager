@@ -5,16 +5,14 @@ class SpacesController < ApplicationController
 		@day = Date.today 
 		reserv = Reservation.where(date: @day, space_id: @spaces.map(&:id))
 		@reservations = {}
-		@spaces.each {|s| @reservations[s.id] = []}
-
+		@spaces.each {|s| @reservations[s.id] = []}  # creamos un hash para almacenar info de reservas de forma q
+		                                             # cada sala tenga un array de horas de reserva
+		                                             # ej: Sala 1 = [10, 11, 17, 18]
 		reserv.each do |r|
-			@reservations[r.space_id] << r.hour
+			@reservations[r.space_id] << r.hour     # y aqui le añadimos la hora de la reserva
+			                                        # a la sala correspondiente
 		end
 
-	end
-
-	def incidences
-		puts "XXXXXXXXXX"
 	end
 
 	def new
