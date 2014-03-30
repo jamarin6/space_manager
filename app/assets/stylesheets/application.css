@@ -16,8 +16,12 @@
 
 .center {
 	position:absolute;
-	left:600px;
-	top:0px;
-	width: 30%;
+	left:700px;
+	display: inline-block;
 }
 
+
+.logo {
+	display: inline-block;
+	margin-left: 600px;
+}

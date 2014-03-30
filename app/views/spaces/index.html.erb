@@ -11,10 +11,10 @@
 				  <tr>
 					<% space.start_at.upto(space.end_at) do |i| %>
 						<% if @reservations[space.id].include?(i) %>
-							<td style="background-color:red">info
+							<td style="background-color:red"><%#= link_to "info", space_reservation_path(:space_id => space.id, :id => :reservation_id), style: 'color:black;' %>  
 						<% else %>
 							<td style="background-color:green"><%= link_to "occupy", new_space_reservation_path(:space_id => space.id,
-							 :hour => i, :date => Date.today) %>
+							 :hour => i, :date => Date.today), style: 'color:brown;' %>
 						<% end %>
 						<br><%= i %>:00 - <%= i+1 %>:00</td>
 					<% end %>

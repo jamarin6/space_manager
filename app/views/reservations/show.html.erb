@@ -2,20 +2,20 @@
 
 <h1>----INFO----</h1>
 
-<% if @reservations.empty? %>
 
-	<h2>Reservations empty</h2>
 
-<% else %>
+	<h1><%= @reservation.space.name %></h1>
 
-	<ul>
-		<% @reservations.each do |reservation| %>
-			<li> Sala: <%= reservation.id_space %> - Date: <%= reservation.date %>
-			   - Occupy by: <%= reservation.customer %> 
-			   	Incidence: <%= reservation.incidences %> 
-			</li>
-		<% end %>
-	</ul> 
+	<h3>Customer:</h3> <h5><%= @reservation.customer %></h5>
+	<h3>Day:</h3> <h5><%= @reservation.day %></h5>
+	<h3>Hour:</h3> <h5><%= @reservation.hour %></h5>
+
+	<% if @reservation.incidences == nil %>
+		<h2>***NO INCIDENCES***</h2>
+	<% else %>
+		<h3>Incidences:</h3> <h5><%= @reservation.incidences %></h5>
+	<% end %>
+
 
 	<br>
 	<br>
