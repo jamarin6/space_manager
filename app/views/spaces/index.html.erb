@@ -1,4 +1,4 @@
-<h1>space list</h1>
+<h1>Space List</h1>
 
 <% if @spaces.empty? %>
 	YOU DON´T HAVE ANY SPACE
@@ -6,14 +6,14 @@
 <% else %>
 	<ul>
 		<% @spaces.each do |space| %>
-			<li> <%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %>
-				<table>
+			<li> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
+				<table class="table2">
 				  <tr>
 					<% space.start_at.upto(space.end_at) do |i| %>
 						<% if @reservations[space.id].include?(i) %>
-							<td style="background-color:red"><%= link_to "info", space_reservation_path(:space_id => space.id, :id => @reservations[space.id][i]), style: 'color:black;' %>  
+							<td class="back-red"><%= link_to "info", space_reservation_path(:space_id => space.id, :id => @reservations[space.id][i]), style: 'color:black;' %>  
 						<% else %>
-							<td style="background-color:green"><%= link_to "occupy", new_space_reservation_path(:space_id => space.id,
+							<td class="back-green"><%= link_to "occupy", new_space_reservation_path(:space_id => space.id,
 							 :hour => i, :date => Date.today), style: 'color:brown;' %>
 						<% end %>
 						<br><%= i %>:00 - <%= i+1 %>:00</td>
