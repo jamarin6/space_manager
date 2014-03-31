@@ -12,6 +12,10 @@ class ReservationsController < ApplicationController
 		redirect_to spaces_path
 	end
 
+	def edit
+		@reservation = Reservation.find(params[:id])
+	end
+
 	def incidences
 		@reservations = Reservation.all
 	end
@@ -31,8 +35,15 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.find(params[:id])
 	end
 
+	def update
+		@reservation = Reservation.find(params[:id])
+		if @reservation.update_attributes(params[:incidences])
+			redirect_to reservations_incidences_path
+		end
+	end
+
 	private
 	def reservation_params
-		params.require(:reservation).permit(:customer, :space_id, :hour, :date)
+		params.require(:reservation).permit(:customer, :space_id, :hour, :date, :incidences)
 	end
 end

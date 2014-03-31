@@ -1,0 +1,12 @@
+<h1>Edit Reservation -----> Create Incidences</h1>
+
+<%= @reservation.space.name %> 
+
+
+<%= form_for [@reservation.space, @reservation] do |f| %>
+  <%= f.label :incidences %>
+  <%= f.text_field :incidences %>
+  <br>
+
+  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
+<% end %>

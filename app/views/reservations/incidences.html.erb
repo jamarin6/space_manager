@@ -6,7 +6,7 @@
 				
 			<% else %>
 				<li> 
-					Sala <%= reservation.space.name %> - Incidence: <%= reservation.incidences %> Date: <%= reservation.date %> Hour: <%= reservation.hour %>:00 - <%= link_to "delete", delete_incidence_path(reservation) %>
+					 <%= reservation.space.name %> - Incidence: <%= reservation.incidences %> Date: <%= reservation.date %> Hour: <%= reservation.hour %>:00 - <%= link_to "delete", delete_incidence_path(reservation) %>
 				</li>
 			<% end %>
 		<% end %>

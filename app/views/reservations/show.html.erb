@@ -8,10 +8,11 @@
 
 	<h3>Customer: <strong><%= @reservation.customer %></strong></h3>
 	<h3>Day: <strong><%= @reservation.date %></strong></h3>
-	<h3>Hour: <strong><%= @reservation.hour %>:00 -</strong></h3>
+	<h3>Hour: <strong><%= @reservation.hour %>:00 - <%= @reservation.hour+1 %>:00 </strong></h3>
 
 	<% if @reservation.incidences == nil %>
 		<h2>***NO INCIDENCES***</h2>
+		<%= link_to "Create Incidence", edit_space_reservation_path(:space_id => @reservation.space_id, :id =>       @reservation.id) %>
 	<% else %>
 		<h3>Incidences:</h3> <h5><%= @reservation.incidences %></h5>
 	<% end %>

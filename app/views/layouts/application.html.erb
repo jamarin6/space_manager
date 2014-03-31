@@ -48,8 +48,10 @@
     </ul>
   </section>
 </nav>
-
-  <p><strong>User: </strong><%= current_user.email %></p>
+  
+  <% if current_user %>
+    <p><strong>User: </strong><%= current_user.email %></p>
+  <% end %>
 
     </div>
 
