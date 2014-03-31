@@ -48,12 +48,13 @@
     </ul>
   </section>
 </nav>
-  
+</div>
+
   <% if current_user %>
     <p class="right">-<strong>User: </strong><%= current_user.email %>-</p>
   <% end %>
 
-    </div>
+
 
     <%= yield %>
       <%= javascript_include_tag "application" %>

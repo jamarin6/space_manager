@@ -6,7 +6,7 @@
 				
 			<% else %>
 				<li> 
-					 <strong><%= reservation.space.name %></strong> - <%= reservation.date %> -  <%= reservation.hour %>:00h - <strong>User: </strong>"<%= reservation.customer %>"  ---- <strong>Incidence: </strong><strong class="red"><%= reservation.incidences %></strong>  ---- <%= link_to "delete", edit_space_reservation_path(:space_id => reservation.space_id, :id => reservation.id) %>
+					 <strong><%= reservation.space.name %></strong> - <%= reservation.date %> -  <%= reservation.hour %>:00h - <strong>User: </strong>"<%= reservation.customer %>"  ---- <strong>Incidence: </strong><strong class="red"><%= reservation.incidences %></strong>  ---- <%= link_to "delete", delete_incidence_path(:id => reservation.id) %>
 				</li>
 			<% end %>
 		<% end %>

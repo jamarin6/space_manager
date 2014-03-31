@@ -4,7 +4,7 @@
 
 
 
-	<h1><%= @reservation.space.name %></h1>
+	<h1><%= @reservation.space.name %></h1> <p class="green"><%= link_to "#Release#", space_reservation_path(@reservation.space, @reservation), method: :delete %></p>
 
 	<h3>Customer: <strong><%= @reservation.customer %></strong></h3>
 	<% d = @reservation.date %>
@@ -13,12 +13,17 @@
 
 	<% if @reservation.incidences == nil || @reservation.incidences == "" %>
 		<h2>***NO INCIDENCES***</h2>
-		<%= link_to "Create Incidence", edit_space_reservation_path(:space_id => @reservation.space_id, :id =>       @reservation.id) %>
+		<%= link_to "--Create Incidence--", edit_space_reservation_path(:space_id => @reservation.space_id, :id =>       @reservation.id) %>
 	<% else %>
-		<h3>Incidences:</h3> <h5><%= @reservation.incidences %></h5>
+		<h3>Incidences: <strong class="red"><%= @reservation.incidences %></strong></h3>
 	<% end %>
+	
+	<br>
 
+	
 
+	<br>
+	<br>
 	<br>
 	<br>
 	<br>
