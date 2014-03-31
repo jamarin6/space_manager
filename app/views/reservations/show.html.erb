@@ -6,9 +6,9 @@
 
 	<h1><%= @reservation.space.name %></h1>
 
-	<h3>Customer:</h3> <h5><%= @reservation.customer %></h5>
-	<h3>Day:</h3> <h5><%= @reservation.day %></h5>
-	<h3>Hour:</h3> <h5><%= @reservation.hour %></h5>
+	<h3>Customer: <strong><%= @reservation.customer %></strong></h3>
+	<h3>Day: <strong><%= @reservation.date %></strong></h3>
+	<h3>Hour: <strong><%= @reservation.hour %>:00 -</strong></h3>
 
 	<% if @reservation.incidences == nil %>
 		<h2>***NO INCIDENCES***</h2>
@@ -20,6 +20,5 @@
 	<br>
 	<br>
 	<br>
-<% end %>
 
 <%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Incidences", reservations_incidences_path %> - <%= link_to "Visuality spaces", spaces_path %>
