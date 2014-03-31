@@ -66,4 +66,26 @@ table {
 
 .characters {
 	font-family: fantasy;
+	margin-left: 8px;
+}
+
+.characters2 {
+	font-family: cursive;
+	
+}
+
+.characters-title {
+	font-family: fantasy;
+	margin-left: 35%;
+	margin-top: 35%;
+}
+
+.upmail {
+	float: right;
+	font-family: cursive;
+	background-color: #C8DDEE;
+}
+
+.table-to-right {
+	margin-left: 18px;
 }

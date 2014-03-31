@@ -1,4 +1,4 @@
-<h1>Space List</h1>
+<h1 class="characters">Space List</h1>
 
 <% if @spaces.empty? %>
 	YOU DON´T HAVE ANY SPACE
@@ -6,7 +6,7 @@
 <% else %>
 	<ul>
 		<% @spaces.each do |space| %>
-			<li> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
+			<li class="table-to-right"> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
 				<table class="table2">
 				  <tr>
 					<% space.start_at.upto(space.end_at) do |i| %>
