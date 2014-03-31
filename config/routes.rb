@@ -9,7 +9,7 @@ Spacemanager::Application.routes.draw do
   end
 
   get 'reservations/incidences' => 'reservations#incidences', as: :reservations_incidences
-  put 'reservations/:id/delete_incidence' => 'reservations#delete_incidence', as: :delete_incidence
+  delete 'reservations/:id/delete_incidence' => 'reservations#delete_incidence', as: :delete_incidence
   root to: 'site#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
