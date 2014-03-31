@@ -14,6 +14,11 @@ class ReservationsController < ApplicationController
 
 	def edit
 		@reservation = Reservation.find(params[:id])
+		#if @reservation.incidences == nil
+		#
+		#else
+		#
+		#end
 	end
 
 	def incidences
@@ -37,7 +42,7 @@ class ReservationsController < ApplicationController
 
 	def update
 		@reservation = Reservation.find(params[:id])
-		if @reservation.update_attributes(params[:incidences])
+		if @reservation.update_attributes(reservation_params)
 			redirect_to reservations_incidences_path
 		end
 	end

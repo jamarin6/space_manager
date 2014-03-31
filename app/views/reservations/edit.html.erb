@@ -2,11 +2,19 @@
 
 <%= @reservation.space.name %> 
 
+<% if @reservation.incidences == nil || @reservation.incidences == "" %>
 
-<%= form_for [@reservation.space, @reservation] do |f| %>
-  <%= f.label :incidences %>
-  <%= f.text_field :incidences %>
-  <br>
+	<%= form_for [@reservation.space, @reservation] do |f| %>
+	  <%= f.label :incidences %>
+	  <%= f.text_field :incidences %>
+	  <br>
 
-  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
+	  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
+	<% end %>
+
+<% else %>
+
+	<% @reservation.incidences = nil %>
+	<%=  %>
+
 <% end %>
