@@ -29,6 +29,8 @@
     <ul class="right">
 
       <% if current_user %>
+
+        <li class="active"><a href="/spaces"><%= current_user.email %></a></li>
         
         <li class="has-dropdown">
           <a href="#">Go to</a>
@@ -51,7 +53,7 @@
 </div>
 
   <% if current_user %>
-    <p class="upmail">-<strong>User: </strong><%= current_user.email %>-</p>
+    <!-- <p class="upmail">-<strong>User: </strong><%= current_user.email %>-</p> -->
   <% end %>
 
 

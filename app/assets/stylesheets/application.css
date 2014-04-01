@@ -86,9 +86,10 @@ table {
 }
 
 .upmail {
-	float: right;
+	margin-top: 8px;
 	font-family: cursive;
-	background-color: #C8DDEE;
+	background-color: blue;
+	color: white;
 }
 
 .table-to-right {
