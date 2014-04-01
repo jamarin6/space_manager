@@ -6,10 +6,10 @@
 <% else %>
 
 	<% if @day == Date.today %> 
-		    <strong class="characters-day"> TODAY -</strong> <%= @day %> <%= link_to ">>> Go Tomorrow", spaces_path(:date => Date.tomorrow) %>
-		  <% else %>
-			<strong class="characters-day">TOMORROW -</strong> <%= @day %> <%= link_to "<<<Back Today----", spaces_path(:date => Date.today) %>
-		  <% end %>             <!-- cambio xa tomorrow -->
+		<strong class="characters-day"> TODAY -</strong> <%= @day %> <%= link_to ">>> Go Tomorrow", spaces_path(:date => Date.tomorrow) %>
+	<% else %>
+		<strong class="characters-day">TO<%= link_to "<<<1 day before----", spaces_path(:date => @day-1) %> -</strong> <%= @day %>  --------------------- <%= link_to "--Next Day>>>", spaces_path(:date => @day+1) %>
+	<% end %>             <!-- cambio xa tomorrow -->
 
 	<ul>
 		<% @spaces.each do |space| %>
