@@ -9,7 +9,11 @@ class ReservationsController < ApplicationController
 	def create
 		@space = Space.find(params[:space_id])
 		@space.reservations.create reservation_params
-		redirect_to spaces_path
+		if @day == Date.tomorrow
+			redirect_to spaces_path(:date => Date.tomorrow)
+		else
+			redirect_to spaces_path
+		end
 	end
 
 	def edit

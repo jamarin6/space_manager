@@ -77,7 +77,12 @@ table {
 .characters-title {
 	font-family: fantasy;
 	margin-left: 35%;
-	margin-top: 35%;
+	margin-top: 10%;
+}
+
+.characters-day {
+	font-family: cursive;
+	margin-left: 35%;
 }
 
 .upmail {
