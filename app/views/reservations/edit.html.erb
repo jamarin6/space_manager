@@ -1,19 +1,26 @@
-<h1>Edit Reservation -----> Create Incidences</h1>
+<br>
+<br>
+<div class="sidedar large-4 columns left">&nbsp;</div>
+<div class="large-4 columns">
 
-<%= @reservation.space.name %> 
+	<h1 class="characters">Create Incidences</h1>
 
-<% if @reservation.incidences == nil || @reservation.incidences == "" %>
+	<%= @reservation.space.name %> 
 
-	<%= form_for [@reservation.space, @reservation] do |f| %>
-	  <%= f.label :incidences %>
-	  <%= f.text_field :incidences %>
-	  <br>
+	<% if @reservation.incidences == nil || @reservation.incidences == "" %>
 
-	  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
+		<%= form_for [@reservation.space, @reservation] do |f| %>
+		  <%= f.label :incidences %>
+		  <%= f.text_field :incidences %>
+		  <br>
+
+		  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
+		<% end %>
+
+	<% else %>
+
+		
+		
 	<% end %>
 
-<% else %>
-
-	
-	
-<% end %>
+</div>

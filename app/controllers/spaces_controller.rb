@@ -2,7 +2,7 @@ class SpacesController < ApplicationController
 	before_filter :authenticate_user!
 	def index
 		@spaces = current_user.spaces
-		@day = params[:date] ? Date.parse(params[:date]) : Date.today       # cambio xa el tomorrow: day_elect
+		@day = params[:date] ? Date.parse(params[:date]) : Date.today 
 		@reserv = Reservation.where(date: @day, space_id: @spaces.map(&:id))
 		@reservations = {}
 		@spaces.each {|s| @reservations[s.id] = {}}  # creamos un hash vacio primero aki, para almacenar info de reservas de forma q

@@ -1,19 +1,25 @@
-<h1>List of incidences</h1>
+<br>
+<br>
+<div class="sidedar large-2 columns left">&nbsp;</div>
+<div class="large-7 columns">
 
-<ul>
-		<% @reservations.each do |reservation| %>
-			<% if reservation.incidences == nil || reservation.incidences == "" %>
-				
-			<% else %>
-				<li> 
-					 <strong><%= reservation.space.name %></strong> - <%= reservation.date %> -  <%= reservation.hour %>:00h - <strong>User: </strong>"<%= reservation.customer %>"  ---- <strong>Incidence: </strong><strong class="red"><%= reservation.incidences %></strong>  ---- <%= link_to "delete", delete_incidence_path(:id => reservation.id), method: :delete %>
-				</li>
+	<h1 class="characters">List of incidences</h1>
+
+	<ul>
+			<% @reservations.each do |reservation| %>
+				<% if reservation.incidences == nil || reservation.incidences == "" %>
+					
+				<% else %>
+					<li> 
+						 <strong><%= reservation.space.name %></strong> - <%= reservation.date %> -  <%= reservation.hour %>:00h - <strong>User: </strong>"<%= reservation.customer %>"  ---- <strong>Incidence: </strong><strong class="red"><%= reservation.incidences %></strong>  ---- <%= link_to "delete", delete_incidence_path(:id => reservation.id), method: :delete %>
+					</li>
+				<% end %>
 			<% end %>
-		<% end %>
-</ul> 
+	</ul> 
 
-<br>
-<br>
-<br>
+	<br>
+	<br>
+	<br>
 
-<%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Visuality spaces", spaces_path %>
+	<%= link_to "Home", root_path %> - <%= link_to "Edit", new_space_path %> -  <%= link_to "Visuality spaces", spaces_path %>
+</div>

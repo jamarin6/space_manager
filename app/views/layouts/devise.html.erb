@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+      <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "vendor/modernizr" %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body class= "content-text">
+<%#=  link_to "Exit", destroy_user_session_path %>
+<div class="sticky">
+<nav class="top-bar" data-topbar>
+  <ul class="title-area">
+    <li>
+      <a href="/"><img src="/assets/house.png" alt="HTML tutorial" width="42" height="42"></a>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+
+      <% if current_user %>
+        
+        <li class="has-dropdown">
+          <a href="#">Go to</a>
+          <ul class="dropdown">
+            <li><a href="/spaces">Visuality</a></li>
+            <li><a href="/spaces/new">NewSpace</a></li>
+            <li><a href="/reservations/incidences">Incidences</a></li>
+            <li><%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+
+      <% else %>
+        <li class="active"><a href="/users/sign_in">SignIn</a></li>
+        <li class="active"><a href="/users/sign_up">SignUp</a></li>
+      <% end %>
+
+    </ul>
+  </section>
+</nav>
+</div>
+
+  <% if current_user %>
+    <p class="upmail">-<strong>User: </strong><%= current_user.email %>-</p>
+  <% end %>
+
+  <br>
+  <br>
+
+  <div class="sidebar large-3 colums left">&nbsp;</div>
+  <div class="large-5 column">
+
+    <%= yield %>
+    </div>
+      <%= javascript_include_tag "application" %>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
