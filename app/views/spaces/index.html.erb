@@ -9,7 +9,7 @@
 		<strong class="characters-day"> TODAY - <%= @day %> <%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1) %></strong>
 	<% else %>
 		<strong class="characters-day"><%= link_to "<<<1 day before", spaces_path(:date => @day-1) %> - <%= @day.strftime("%A") %> - <%= @day %> - <%= link_to "Next Day>>>", spaces_path(:date => @day+1) %></strong>
-	<% end %>             <!-- cambio xa tomorrow -->
+	<% end %>
 
 	<ul>
 		<% @spaces.each do |space| %>

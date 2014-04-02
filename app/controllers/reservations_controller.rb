@@ -47,7 +47,8 @@ class ReservationsController < ApplicationController
 	def update
 		@reservation = Reservation.find(params[:id])
 		if @reservation.update_attributes(reservation_params)
-			redirect_to reservations_incidences_path
+			#redirect_to reservations_incidences_path
+			redirect_to space_reservation_path(:space_id => @reservation.space_id, :id => @reservation.id)
 		end
 	end
 
