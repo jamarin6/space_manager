@@ -5,8 +5,11 @@
 
 	<h1 class="characters">List of incidences</h1>
 
+	
+
 	<ul>
 			<% @reservations.each do |reservation| %>
+		      <% if reservation.space.user == current_user %>
 				<% if reservation.incidences == nil || reservation.incidences == "" %>
 					
 				<% else %>
@@ -14,6 +17,7 @@
 						 <strong><%= reservation.space.name %></strong> - <%= reservation.date %> -  <%= reservation.hour %>:00h - <strong>User: </strong>"<%= reservation.customer %>"  ---- <strong>Incidence: </strong><strong class="red"><%= reservation.incidences %></strong>  ---- <%= link_to "delete", delete_incidence_path(:id => reservation.id), method: :delete %>
 					</li>
 				<% end %>
+			  <% end %>
 			<% end %>
 	</ul> 
 
