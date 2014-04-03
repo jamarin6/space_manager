@@ -76,8 +76,9 @@ table {
 
 .characters-title {
 	font-family: fantasy;
-	margin-left: 35%;
+	margin-left: 20%;
 	margin-top: 10%;
+	font-size: 90px;
 }
 
 .characters-day {
@@ -94,4 +95,8 @@ table {
 
 .table-to-right {
 	margin-left: 18px;
+}
+
+.fondo {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(160,216,239,1)), color-stop(65%,rgba(221,241,249,1)), color-stop(100%,rgba(254,255,255,1)));
 }

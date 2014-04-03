@@ -9,7 +9,7 @@
 
 	<ul>
 			<% @reservations.each do |reservation| %>
-		      <% if reservation.space.user == current_user %>
+		      <% if reservation.space && reservation.space.user == current_user %>
 				<% if reservation.incidences == nil || reservation.incidences == "" %>
 					
 				<% else %>
