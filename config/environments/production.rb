@@ -8,7 +8,7 @@ Spacemanager::Application.configure do
   # your application in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
-  config.eager_load = true
+  #########config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -23,7 +23,8 @@ Spacemanager::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  ##########config.assets.js_compressor = :uglifier
+  config.assets.compress = true
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -33,7 +34,7 @@ Spacemanager::Application.configure do
   config.assets.digest = true
 
   # Version of your assets, change this if you want to expire all your assets.
-  config.assets.version = '1.0'
+  ########config.assets.version = '1.0'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -43,7 +44,7 @@ Spacemanager::Application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  ###########config.log_level = :info
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -76,5 +77,5 @@ Spacemanager::Application.configure do
   # config.autoflush_log = false
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  ############config.log_formatter = ::Logger::Formatter.new
 end
