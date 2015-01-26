@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
 	def home
-		#@user = User.new
+		@user = User.new
 	end
 end
