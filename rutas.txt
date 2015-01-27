@@ -39,5 +39,5 @@ cancel_user_registration GET    /users/cancel(.:format)                         
                          PUT    /spaces/:id(.:format)                             spaces#update
                          DELETE /spaces/:id(.:format)                             spaces#destroy
  reservations_incidences GET    /reservations/incidences(.:format)                reservations#incidences
-        delete_incidence PUT    /reservations/:id/delete_incidence(.:format)      reservations#delete_incidence
+        delete_incidence DELETE /reservations/:id/delete_incidence(.:format)      reservations#delete_incidence
                     root GET    /                                                 site#home
