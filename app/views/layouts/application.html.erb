@@ -26,31 +26,26 @@
 
         <section class="top-bar-section">
           <!-- Right Nav Section -->
-          <ul class="right">
-            <div class="row">
-              <div class="small-12 medium-12 large-12 columns">
+          <ul class="right"> 
+            <% if current_user %>
+
+              <li class="active"><a href="/spaces"><%= current_user.email %></a></li>
               
-                <% if current_user %>
+              <li class="has-dropdown">
+                <a href="#">Go to</a>
+                <ul class="dropdown">
+                  <li><a href="/spaces">Visuality</a></li>
+                  <li><a href="/spaces/new">NewSpace</a></li>
+                  <li><a href="/reservations/incidences">Incidences</a></li>
+                  <li><%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
+                </ul>
+              </li>
 
-                  <li class="active"><a href="/spaces"><%= current_user.email %></a></li>
-                  
-                  <li class="has-dropdown">
-                    <a href="#">Go to</a>
-                    <ul class="dropdown">
-                      <li><a href="/spaces">Visuality</a></li>
-                      <li><a href="/spaces/new">NewSpace</a></li>
-                      <li><a href="/reservations/incidences">Incidences</a></li>
-                      <li><%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
-                    </ul>
-                  </li>
-
-                <% else %>
-                  <li class="active"><a href="/users/sign_in">SignIn</a></li>
-                  <li class="active"><a href="/users/sign_up">SignUp</a></li>
-                <% end %>
-              </div>
-            </div>
-
+            <% else %>
+              <li class="active"><a href="/users/sign_in">SignIn</a></li>
+              <li class="active"><a href="/users/sign_up">SignUp</a></li>
+            <% end %>
+            
           </ul>
         </section>
       </nav>
