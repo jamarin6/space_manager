@@ -6,14 +6,14 @@
 <% else %>
 
 	<% if @day == Date.today %> 
-		<strong class="characters-day"><%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1) %> - TODAY - <%= @day %> <%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1) %></strong>
+		<strong class="characters-day"><%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1), :class => "small-12 small-centered columns" %> - TODAY - <%= @day %> <%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1), :class => "small-12 small-centered columns" %></strong>
 	<% else %>
-		<strong class="characters-day"><%= link_to "<<<1 day before", spaces_path(:date => @day-1) %> - <%= @day.strftime("%A") %> - <%= @day %> - <%= link_to "Next Day>>>", spaces_path(:date => @day+1) %></strong>
+		<strong class="characters-day"><%= link_to "<<<1 day before", spaces_path(:date => @day-1), :class => "small-12 small-centered columns" %> - <%= @day.strftime("%A") %> - <%= @day %> - <%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "small-12 small-centered columns" %></strong>
 	<% end %>
 
 	<ul>
 		<% @spaces.each do |space| %>
-			<li class="table-to-right"> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
+			<li class="small-12 medium-12 large-12 columns table-to-right"> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
 				<table class="table2">
 				  <tr>
 
