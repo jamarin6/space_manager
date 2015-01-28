@@ -7,14 +7,14 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-      <title><%#= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+      <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-      <%#= stylesheet_link_tag    "application" %>
-      <%#= javascript_include_tag "vendor/modernizr" %>
-      <%#= csrf_meta_tags %>
+      <%= stylesheet_link_tag    "application" %>
+      <%= javascript_include_tag "vendor/modernizr" %>
+      <%= csrf_meta_tags %>
   </head>
   <body class= "content-text fondo">
-<%#=  link_to "Exit", destroy_user_session_path %>
+<%=  link_to "Exit", destroy_user_session_path %>
 <div class="sticky">
 <nav class="top-bar" data-topbar>
   <ul class="title-area">
