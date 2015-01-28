@@ -98,5 +98,10 @@ table {
 }
 
 .fondo {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(160,216,239,1)), color-stop(65%,rgba(221,241,249,1)), color-stop(100%,rgba(254,255,255,1)));
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(160,216,239,1)), color-stop(65%,rgba(221,241,249,1)), color-stop(100%,rgba(254,255,255,1)));*/
+	background-color: #BAEAF6;
+}
+
+.ancho_header {
+	width: 100%;
 }
