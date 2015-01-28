@@ -13,7 +13,7 @@
 
 	<ul>
 		<% @spaces.each do |space| %>
-			<li class="small-12 medium-12 large-12 columns table-to-right"> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
+			<li class="table-to-right"> <p class="characters"><%= space.name %> <%= link_to " -Delete", space_path(space.id), method: :delete %></p>
 				<table class="table2">
 				  <tr>
 
