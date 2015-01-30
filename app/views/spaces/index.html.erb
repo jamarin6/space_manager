@@ -7,20 +7,25 @@
 	<div class="row">
 
 		<% if @day == Date.today %> <!--hacerlo con div.row y div.small-12 etc...-->
-			<div class="small-12 medium-4 large-4 columns">
-				<%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1)%>
+
+			<div class="small-12 medium-4 large-2 large-offset-3 columns">
+				<%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1), :class => "right"%>
 			</div>
-			<div class="small-12 medium-4 large-4 columns">
-			 	<div>- TODAY - <%= @day %> </div>
+			<div class="small-12 medium-4 large-2 columns">
+			 	<div class="text-center"><strong>TODAY  </strong><br><%= @day %></div>
 			</div>
-			<div class="small-12 medium-4 large-4 columns">
+			<div class="small-12 medium-4 large-2 columns">
 				<%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1)%>
 			</div>
+			<div class="large-3"></div>
+
 		<% else %>
-			<div class="characters-day"><%= link_to "<<<1 day before", spaces_path(:date => @day-1), :class => "small-12 small-centered columns" %> - <%= @day.strftime("%A") %> - <%= @day %> - <%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "small-12 small-centered columns" %></div>
 
-
-
+			<div class="small-12 medium-4 large-5 columns"><%= link_to "<<<1 day before", spaces_path(:date => @day-1), :class => "right" %></div>
+			<div class="small-12 medium-4 large-2 columns">
+				<div class="text-center"><strong><%= @day.strftime("%A") %></strong><br><%= @day %></div>
+			</div>
+			<div class="small-12 medium-4 large-5 columns"><%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "left" %></div>
 		
 		<% end %>
 	</div>
