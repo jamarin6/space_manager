@@ -36,10 +36,6 @@ class ReservationsController < ApplicationController
 		redirect_to reservations_incidences_path
 	end
 
-	def create_incidence
-		@reservation = Reservation.find(params[:id])
-	end
-
 	def show
 		@reservation = Reservation.find(params[:id])
 	end

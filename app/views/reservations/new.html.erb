@@ -10,7 +10,7 @@
 
 	<%= form_for [@reservation.space, @reservation] do |f| %>
 		<%= f.label :customer %>
-		<%= f.text_field :customer %>
+		<%= f.text_field :customer, :autofocus => true %>
 		<br>
 		<%= f.label :date %>
 		<%= f.text_field :date %>

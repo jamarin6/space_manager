@@ -11,7 +11,7 @@
 
 		<%= form_for [@reservation.space, @reservation] do |f| %>
 		  <%= f.label :incidences %>
-		  <%= f.text_field :incidences %>
+		  <%= f.text_field :incidences, :autofocus => true %>
 		  <br>
 
 		  <%= f.submit 'Save' %> <%= link_to "Incidences", reservations_incidences_path %>
