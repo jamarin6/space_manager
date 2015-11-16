@@ -31,13 +31,13 @@ class ReservationsController < ApplicationController
 		redirect_to reservations_incidences_path
 	end
 
-	def delete_incidences_space space_id
+	def delete_incidences_space
 		space = Space.find(params[:space_id])
 		space.reservations.each do |reserv|
 			reserv.incidences = ""
 			reserv.save
-			redirect_to spaces_path
 		end
+		redirect_to spaces_path
 	end
 
 	def show
