@@ -18,11 +18,6 @@ class ReservationsController < ApplicationController
 
 	def edit
 		@reservation = Reservation.find(params[:id])
-		#if @reservation.incidences == nil
-		#
-		#else
-		#
-		#end
 	end
 
 	def incidences
@@ -34,6 +29,10 @@ class ReservationsController < ApplicationController
 		@reservation.incidences = ""
 		@reservation.save
 		redirect_to reservations_incidences_path
+	end
+
+	def delete_incidences_space space_id
+		space = Space.find(params[:space_id])
 	end
 
 	def show
