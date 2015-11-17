@@ -32,11 +32,7 @@ class ReservationsController < ApplicationController
 	end
 
 	def delete_incidences_space
-		space = Space.find(params[:space_id])
-		space.reservations.each do |reserv|
-			reserv.incidences = ""
-			reserv.save
-		end
+		Space.find(params[:space_id]).empty_reservation_incidences
 		redirect_to spaces_path
 	end
 

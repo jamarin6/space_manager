@@ -5,7 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :spaces
 
+	scope :ordered_by_email, -> { order(:email) }
+
+
 	def owner_of?(space_id)
 		Space.exists?(user_id: self.id, id: space_id)
+	end
+
+	def self.ordered_by_email
+		all.sort_by(&:email)
 	end
 end

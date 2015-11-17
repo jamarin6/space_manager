@@ -43,6 +43,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'autotest-rails'
 end
 
 # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
