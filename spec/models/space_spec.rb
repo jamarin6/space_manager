@@ -13,11 +13,11 @@ RSpec.describe Space, type: :model do
     end
 
     it "should work" do
-      expect(@space.incidences).to eq(["this is an incidence"])
+      expect(@space.incidences).to include(["this is an incidence"])
 
       @space.empty_reservation_incidences
 
-      expect(@space.incidences).to eq([])
+      expect(@space.incidences).to eq([[]])
     end
 
     it "should return false if something went wrong" do
