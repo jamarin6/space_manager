@@ -1,0 +1,31 @@
+.sticky
+  %nav.top-bar.ancho_header{"data-topbar" => ""}
+    %ul.title-area
+      %li
+        .sidedar.small-1.medium-1.large-1.columns.left  
+        %a{:href => "/spaces"}
+          %img{:alt => "HTML tutorial", :height => "42", :src => "/assets/house.png", :width => "42"}/
+      %li.toggle-topbar.menu-icon
+        %a{:href => "#"}
+          %span Menu
+    %section.top-bar-section
+      / Right Nav Section
+      %ul.right
+        - if current_user
+          %li.active
+            %a{:href => "/spaces"}= current_user.email
+          %li.has-dropdown
+            %a{:href => "#"} Go to
+            %ul.dropdown
+              %li
+                %a{:href => "/spaces"} Visuality
+              %li
+                %a{:href => "/spaces/new"} NewSpace
+              %li
+                %a{:href => "/incidences"} Incidences
+              %li= link_to "Exit", destroy_user_session_path, method: :delete
+        - else
+          %li.active
+            %a{:href => "/users/sign_in"} SignIn
+          %li.active
+            %a{:href => "/users/sign_up"} SignUp

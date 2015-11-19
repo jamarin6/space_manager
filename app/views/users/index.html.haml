@@ -1,0 +1,7 @@
+%h1
+  MASTERS USERS
+= link_to "click", new_user_session_path
+%ul
+  - @users.each do |user|
+    %li
+      = user.email

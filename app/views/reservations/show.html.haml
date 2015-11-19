@@ -1,0 +1,36 @@
+/ space_reservation GET    /spaces/:space_id/reservations/:id(.:format)      reservations#show
+%br/
+%br/
+.sidedar.large-4.columns.left  
+.large-5.columns
+  %h1.characters INFO
+  %h1= @reservation.space.name
+  %p.green= link_to "#Release#", space_reservation_path(@reservation.space, @reservation), method: :delete
+  %h3
+    Customer:
+    %strong= @reservation.customer
+  - d = @reservation.date
+  %h3
+    Day:
+    %strong= d.strftime("%A - %d - %B ")
+  %h3
+    Hour:
+    %strong
+      = @reservation.hour
+      \:00 - #{@reservation.hour+1}:00
+  - if @reservation.incidences.blank? # == nil || @reservation.incidences == ""
+    %h2 ***NO INCIDENCES***
+    = link_to "--Create Incidence--", new_incidence_path(:reservation_id => @reservation.id)
+  - else
+    %h3
+      Incidences:
+      - @reservation.incidences.each do |incidence|
+        %strong.red= incidence.body
+  %br/
+  %br/
+  %br/
+  %br/
+  %br/
+  %br/
+  = link_to "Home", root_path
+  \- #{link_to "NewSpace", new_space_path} -  #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}

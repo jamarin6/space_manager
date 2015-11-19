@@ -1,5 +1,7 @@
 Spacemanager::Application.routes.draw do
 
+  resources :incidences
+
   devise_for :users
 
   resources :users

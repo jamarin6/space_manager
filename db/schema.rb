@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328114138) do
+ActiveRecord::Schema.define(version: 20151118125318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "incidences", force: true do |t|
+    t.string   "body"
+    t.integer  "reservation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "incidences", ["reservation_id"], name: "index_incidences_on_reservation_id", using: :btree
+
   create_table "reservations", force: true do |t|
     t.string   "customer"
-    t.string   "incidences"
+    t.string   "problems"
     t.date     "date"
     t.integer  "space_id"
     t.datetime "created_at"

@@ -1,0 +1,23 @@
+%br/
+%br/
+.sidedar.large-2.columns.left  
+.large-7.columns
+  %h1.characters List of incidences
+  %ul
+    - @incidences.each do |incidence|
+      - reservation = incidence.reservation
+      %li
+        %strong= reservation.space.name
+        \- #{reservation.date} -  #{reservation.hour}:00h -
+        %strong Customer:
+        = reservation.customer
+        \----
+        %strong Incidence:
+        %strong.red= incidence.body
+        \---- 
+        = link_to "delete", incidence, method: :delete
+  %br/
+  %br/
+  %br/
+  = link_to "Home", root_path
+  == #{link_to "Edit", new_space_path} -  #{link_to "Visuality spaces", spaces_path}

@@ -1,0 +1,49 @@
+!!!
+/[if IE 9] <html class="lt-ie10" lang="en" >
+%html.no-js{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "SpaceManager"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  %body.content-text.fondo
+    .sticky
+      %nav.top-bar.ancho_header{"data-topbar" => ""}
+        %ul.title-area
+          %li
+            .sidedar.small-1.medium-1.large-1.columns.left  
+            %a{:href => "/spaces"}
+              %img{:alt => "HTML tutorial", :height => "42", :src => "/assets/house.png", :width => "42"}/
+          %li.toggle-topbar.menu-icon
+            %a{:href => "#"}
+              %span Menu
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            - if current_user
+              %li.active
+                %a{:href => "/spaces"}= current_user.email
+              %li.has-dropdown
+                %a{:href => "#"} Go to
+                %ul.dropdown
+                  %li
+                    %a{:href => "/spaces"} Visuality
+                  %li
+                    %a{:href => "/spaces/new"} NewSpace
+                  %li
+                    %a{:href => "/reservations/incidences"} Incidences
+                  %li= link_to "Exit", destroy_user_session_path, method: :delete
+            - else
+              %li.active
+                %a{:href => "/users/sign_in"} SignIn
+              %li.active
+                %a{:href => "/users/sign_up"} SignUp
+    = yield
+    = javascript_include_tag "application"
+    %script{:src => "js/vendor/jquery.js"}
+    %script{:src => "js/foundation.min.js"}
+    :javascript
+      $(document).foundation();

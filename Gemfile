@@ -23,6 +23,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'haml-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -44,6 +46,8 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'autotest-rails'
+  gem "erb2haml"
+  gem 'quiet_assets'
 end
 
 # %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|

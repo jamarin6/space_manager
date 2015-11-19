@@ -1,0 +1,19 @@
+= form_for(@incidence) do |f|
+  - if @incidence.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@incidence.errors.count, "error")
+        prohibited this incidence from being saved:
+      %ul
+        - @incidence.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :body
+    %br/
+    = f.text_field :body
+  .field
+    = f.label :reservation_id
+    %br/
+    = f.text_field :reservation_id
+  .actions
+    = f.submit

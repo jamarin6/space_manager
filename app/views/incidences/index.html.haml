@@ -1,0 +1,25 @@
+%h1 Listing incidences
+%table
+  %thead
+    %tr
+      %th Space
+      %th Date
+      %th Body
+      %th Customer
+      %th Reservation
+      %th
+      %th
+      %th
+  %tbody
+    - @incidences.order(:created_at).each do |incidence|
+      %tr
+        %td= incidence.reservation.space.name
+        %td= "#{incidence.reservation.date.strftime("%d/%m/%Y")} - " "#{incidence.reservation.hour}:00h"
+        %td.red= incidence.body
+        %td= incidence.reservation.customer
+        %td= incidence.reservation.id
+        %td= link_to 'Show', incidence
+        %td= link_to 'Edit', edit_incidence_path(incidence)
+        %td= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Incidence', new_incidence_path

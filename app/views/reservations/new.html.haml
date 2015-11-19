@@ -1,0 +1,37 @@
+%br/
+%br/
+.sidedar.large-4.columns.left  
+.large-3.columns
+  %h1.characters Create Reserve
+  %h3.characters= @reservation.space.name
+  %br/
+  = form_for [@reservation.space, @reservation] do |f|
+    .field
+      = f.label :customer
+      = f.text_field :customer, :autofocus => true
+    .field
+      = f.label :date
+      = f.text_field :date
+    .field
+      = f.label :hour
+      = f.text_field :hour
+    %br
+      = f.label :incidences
+      = f.fields_for @incidence do |ff|
+        - if @incidence.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(@incidence.errors.count, "error")
+              prohibited this incidence from being saved:
+            %ul
+              - @incidence.errors.full_messages.each do |msg|
+                %li= msg
+        .field
+          = ff.label :body
+          = ff.text_field :body
+        .field
+          = ff.label :reservation_id
+          = ff.text_field :reservation_id
+    .field
+      = f.submit 'Save', class: "small round button"
+      = link_to 'Cancel', spaces_path

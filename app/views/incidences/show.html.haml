@@ -1,0 +1,10 @@
+%p#notice= notice
+%p
+  %strong Body:
+  = @incidence.body
+%p
+  %strong Reservation:
+  = @incidence.reservation
+= link_to 'Edit', edit_incidence_path(@incidence)
+|
+= link_to 'Back', incidences_path

@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
 	def new
 		space = Space.find(params[:space_id])
 		@reservation = space.reservations.build(:date => (params[:date]), :hour => (params[:hour]))
+    @incidence = @reservation.incidences.new
 	end
 
 	def create
@@ -21,7 +22,8 @@ class ReservationsController < ApplicationController
 	end
 
 	def incidences
-		@reservations = Reservation.all
+		@incidences = Incidence.where(reservation_id: Reservation.where(space_id: current_user.spaces)).includes(reservation: :space)
+    # atención al "includes", con el q cargo "reservation" y "space" en la misma query, ya q las uso en la vista
 	end
 
 	def delete_incidence
