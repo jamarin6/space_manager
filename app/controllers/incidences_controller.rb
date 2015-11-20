@@ -14,10 +14,12 @@ class IncidencesController < ApplicationController
 
   # GET /incidences/new
   def new
-    #@incidence = Incidence.new
-    reservation = Reservation.find(params[:reservation_id])
+    @incidence = Incidence.new
+    @incidence.reservation_id = params[:reservation_id]
+    @incidence.body = params[:body]
+    #reservation = Reservation.find(params[:reservation_id])
     #@incidence = reservation.incidences.build(:date => (params[:date]), :hour => (params[:hour]))
-    @incidence = reservation.incidences.build(:reservation_id => reservation.id)
+    #@incidence = reservation.incidences.build(:reservation_id => reservation.id)
   end
 
   # GET /incidences/1/edit
@@ -31,7 +33,7 @@ class IncidencesController < ApplicationController
 
     respond_to do |format|
       if @incidence.save
-        format.html { redirect_to @incidence, notice: 'Incidence was successfully created.' }
+        format.html { redirect_to incidences_path, notice: 'Incidence was successfully created.' }
         format.json { render action: 'show', status: :created, location: @incidence }
       else
         format.html { render action: 'new' }
@@ -45,7 +47,7 @@ class IncidencesController < ApplicationController
   def update
     respond_to do |format|
       if @incidence.update(incidence_params)
-        format.html { redirect_to @incidence, notice: 'Incidence was successfully updated.' }
+        format.html { redirect_to incidences_path, notice: 'Incidence was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -59,7 +61,7 @@ class IncidencesController < ApplicationController
   def destroy
     @incidence.destroy
     respond_to do |format|
-      format.html { redirect_to @incidence.reservation }
+      format.html { redirect_to incidences_path }
       format.json { head :no_content }
     end
   end

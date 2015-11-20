@@ -20,17 +20,22 @@
       \:00 - #{@reservation.hour+1}:00
   - if @reservation.incidences.blank? # == nil || @reservation.incidences == ""
     %h2 ***NO INCIDENCES***
-    = link_to "--Create Incidence--", new_incidence_path(:reservation_id => @reservation.id)
   - else
-    %h3
-      Incidences:
-      - @reservation.incidences.each do |incidence|
-        %strong.red= incidence.body
+    %table
+      %thead
+        %tr
+          %th Incidences
+          %th
+      %tbody
+        - @reservation.incidences.order(:created_at).each do |incidence|
+          %tr
+            %td.red= incidence.body
+            %td= link_to "--Edit Incidence--", edit_incidence_path(incidence)
+  %h5
+    = link_to "--Create Incidence--", new_incidence_path(:reservation_id => @reservation.id)
+
   %br/
   %br/
-  %br/
-  %br/
-  %br/
-  %br/
+
   = link_to "Home", root_path
-  \- #{link_to "NewSpace", new_space_path} -  #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}
+  \- #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}

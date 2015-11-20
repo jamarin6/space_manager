@@ -11,9 +11,9 @@
       %th
       %th
   %tbody
-    - @incidences.order(:created_at).each do |incidence|
+    - @incidences.order(created_at: :desc).order(:reservation_id).each do |incidence|
       %tr
-        %td= incidence.reservation.space.name
+        %td= link_to incidence.reservation.space.name, space_reservation_path(space_id: incidence.reservation.space_id, id: incidence.reservation_id)
         %td= "#{incidence.reservation.date.strftime("%d/%m/%Y")} - " "#{incidence.reservation.hour}:00h"
         %td.red= incidence.body
         %td= incidence.reservation.customer
@@ -22,4 +22,6 @@
         %td= link_to 'Edit', edit_incidence_path(incidence)
         %td= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-= link_to 'New Incidence', new_incidence_path
+/ = link_to 'New Incidence', new_incidence_path
+= link_to "Home", root_path
+\- #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}

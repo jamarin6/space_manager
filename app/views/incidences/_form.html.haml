@@ -10,8 +10,8 @@
   .field
     = f.label :body
     %br/
-    = f.text_field :body
-  .field
+    = f.text_field :body, :autofocus => true
+  .field{:style => "display:none;"}
     = f.label :reservation_id
     %br/
     = f.text_field :reservation_id
