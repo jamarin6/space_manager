@@ -22,6 +22,5 @@
         %td= link_to 'Edit', edit_incidence_path(incidence)
         %td= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
-/ = link_to 'New Incidence', new_incidence_path
 = link_to "Home", root_path
 \- #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}

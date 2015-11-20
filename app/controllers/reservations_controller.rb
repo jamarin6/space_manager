@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 	def new
 		space = Space.find(params[:space_id])
 		@reservation = space.reservations.build(:date => (params[:date]), :hour => (params[:hour]))
-    @incidence = @reservation.incidences.new
+    	@incidence = @reservation.incidences.new
 	end
 
 	def create

@@ -1,60 +1,60 @@
 <h1 class="characters">Space List</h1>
 
 <% if @spaces.empty? %>
-	YOU DON´T HAVE ANY SPACE
-	<%= link_to "Create a new space", new_space_path %>
+  YOU DON´T HAVE ANY SPACE
+  <%= link_to "Create a new space", new_space_path %>
 <% else %>
-	<div class="row">
+  <div class="row">
 
-		<% if @day == Date.today %> <!--hacerlo con div.row y div.small-12 etc...-->
+    <% if @day == Date.today %> <!--hacerlo con div.row y div.small-12 etc...-->
 
-			<div class="small-12 medium-2 medium-offset-3 large-2 large-offset-3 columns text-center">
-				<%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1), :class => "text-center"%>
-			</div>
-			<div class="small-12 medium-2 large-2 columns">
-			 	<div class="text-center"><strong>TODAY  </strong><br><%= @day %></div>
-			</div>
-			<div class="small-12 medium-2 large-2 columns text-center">
-				<%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1), :class => "text-center"%>
-			</div>
-			<div class="medium-3 large-3"></div>
+      <div class="small-12 medium-2 medium-offset-3 large-2 large-offset-3 columns text-center">
+        <%= link_to "Go Yesterday <<<", spaces_path(:date => @day-1), :class => "text-center"%>
+      </div>
+      <div class="small-12 medium-2 large-2 columns">
+        <div class="text-center"><strong>TODAY  </strong><br><%= @day %></div>
+      </div>
+      <div class="small-12 medium-2 large-2 columns text-center">
+        <%= link_to ">>> Go Tomorrow", spaces_path(:date => @day+1), :class => "text-center"%>
+      </div>
+      <div class="medium-3 large-3"></div>
 
-		<% else %>
+    <% else %>
 
-			<div class="small-12 medium-2 medium-offset-3 large-2 large-offset-3 columns text-center"><%= link_to "<<<1 day before", spaces_path(:date => @day-1), :class => "text-center"%></div>
-			<div class="small-12 medium-2 large-2 columns">
-				<div class="text-center"><strong><%= @day.strftime("%A") %></strong><br><%= @day %></div>
-			</div>
-			<div class="small-12 medium-2 large-2 columns text-center"><%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "text-center"%></div>
-			<div class="medium-3 large-3"></div>
+      <div class="small-12 medium-2 medium-offset-3 large-2 large-offset-3 columns text-center"><%= link_to "<<<1 day before", spaces_path(:date => @day-1), :class => "text-center"%></div>
+      <div class="small-12 medium-2 large-2 columns">
+        <div class="text-center"><strong><%= @day.strftime("%A") %></strong><br><%= @day %></div>
+      </div>
+      <div class="small-12 medium-2 large-2 columns text-center"><%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "text-center"%></div>
+      <div class="medium-3 large-3"></div>
 
-		
-		<% end %>
-	</div>
+    
+    <% end %>
+  </div>
 <br><br><br>
 
-	<ul>
-		<% @spaces.each do |space| %>
-			<li class="table-to-right"> <p class="characters"><%= space.name %> - <%= link_to "Delete", space_path(space.id), method: :delete %> - <%= link_to "DeleteAllIncidencesThisSpace", delete_incidences_space_path(:space_id => space.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
-				<table class="table2">
-				  <tr>
+  <ul>
+    <% @spaces.each do |space| %>
+      <li class="table-to-right"> <p class="characters"><%= space.name %> - <%= link_to "Delete", space_path(space.id), method: :delete %> - <%= link_to "DeleteAllIncidencesThisSpace", delete_incidences_space_path(:space_id => space.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
+        <table class="table2">
+          <tr>
 
-						<% space.start_at.upto(space.end_at) do |i| %>
-							<% if @reservations[space.id].include?(i) %>
-								<td class="back-red"><%= link_to "info", space_reservation_path(:space_id => space.id, :id => @reservations[space.id][i]), :date => @day, style: 'color:black;' %>  
-							<% else %>
-								<td class="back-green"><%= link_to "occupy", new_space_reservation_path(:space_id => space.id,
-								 :hour => i, :date => @day), style: 'color:brown;' %>
-							<% end %>
-							<br><%= i %>:00 - <%= i+1 %>:00</td>
-						<% end %>
+            <% space.start_at.upto(space.end_at) do |i| %>
+              <% if @reservations[space.id].include?(i) %>
+                <td class="back-red"><%= link_to "info", space_reservation_path(:space_id => space.id, :id => @reservations[space.id][i]), :date => @day, style: 'color:black;' %>  
+              <% else %>
+                <td class="back-green"><%= link_to "occupy", new_space_reservation_path(:space_id => space.id,
+                 :hour => i, :date => @day), style: 'color:brown;' %>
+              <% end %>
+              <br><%= i %>:00 - <%= i+1 %>:00</td>
+            <% end %>
 
-				  </tr>
-				</table>
-			</li>
-			
-		<% end %>
-	</ul> 
+          </tr>
+        </table>
+      </li>
+      
+    <% end %>
+  </ul> 
 
 <% end %>
 

@@ -1,4 +1,3 @@
-/ space_reservation GET    /spaces/:space_id/reservations/:id(.:format)      reservations#show
 %br/
 %br/
 .sidedar.large-4.columns.left  
@@ -18,7 +17,8 @@
     %strong
       = @reservation.hour
       \:00 - #{@reservation.hour+1}:00
-  - if @reservation.incidences.blank? # == nil || @reservation.incidences == ""
+  = button_to "Edit reservation", edit_space_reservation_path(space_id: @reservation.space_id, id: @reservation.id), method: :get, class: "button secondary tiny"
+  - if @reservation.incidences.blank?
     %h2 ***NO INCIDENCES***
   - else
     %table
@@ -26,13 +26,15 @@
         %tr
           %th Incidences
           %th
+          %th
       %tbody
         - @reservation.incidences.order(:created_at).each do |incidence|
           %tr
             %td.red= incidence.body
-            %td= link_to "--Edit Incidence--", edit_incidence_path(incidence)
+            %td= link_to "Edit Incidence", edit_incidence_path(incidence)
+            %td= link_to "Delete Incidence", incidence_path(incidence), method: :delete
   %h5
-    = link_to "--Create Incidence--", new_incidence_path(:reservation_id => @reservation.id)
+    = link_to "Create Incidence", new_incidence_path(:reservation_id => @reservation.id)
 
   %br/
   %br/
