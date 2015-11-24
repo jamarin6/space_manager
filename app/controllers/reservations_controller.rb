@@ -1,6 +1,9 @@
 class ReservationsController < ApplicationController
 	before_filter :authenticate_user!
 
+	def index
+		@reservations = Reservation.where(space_id: params[:space_id])
+	end
 	def new
 		space = Space.find(params[:space_id])
 		@reservation = space.reservations.build(:date => (params[:date]), :hour => (params[:hour]))

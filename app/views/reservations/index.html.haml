@@ -1,0 +1,17 @@
+%h1 Listing reservations
+%table
+  %thead
+    %tr
+      %th Customer
+      %th Date
+      %th Space
+      %th Hour
+    - @reservations.order(:space_id).each do |reservation|
+      %tr
+        %td= reservation.customer
+        %td= "#{reservation.date.strftime("%d/%m/%Y")}"
+        %td.red= reservation.space_id
+        %td= reservation.hour
+%br/
+= link_to "Home", root_path
+\- #{link_to "reservations", space_reservations_path} - #{link_to "Visuality spaces", spaces_path}
