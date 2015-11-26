@@ -36,10 +36,10 @@ class ReservationsController < ApplicationController
 		redirect_to reservations_incidences_path
 	end
 
-	def delete_incidences_space
-		Space.find(params[:space_id]).empty_reservation_incidences
-		redirect_to spaces_path
-	end
+	# def delete_incidences_space
+	# 	Space.find(params[:space_id]).empty_reservation_incidences
+	# 	redirect_to spaces_path
+	# end
 
 	def show
 		@reservation = Reservation.find(params[:id])
