@@ -3,9 +3,9 @@ class SpacesController < ApplicationController
 	def index
 		@spaces = current_user.spaces
 		@day = params[:date] ? Date.parse(params[:date]) : Date.today 
-		@reserv = Reservation.where(date: @day, space_id: @spaces.map(&:id))
+		@reserv = Reservation.where(date: @day, space_id: @spaces.map(&:id)) # reservas del día seleccionado y q sean de spaces del current_user
 		@reservations = {}
-		@spaces.each {|s| @reservations[s.id] = {}}  # creamos un hash vacio primero aki, para almacenar info de reservas de forma q
+		@spaces.each {|s| @reservations[s.id] = {}}  # creamos un hash vacio primero aquí, para almacenar info de reservas de forma q
 		                                             # cada sala tenga otro hash de horas de reserva y estos a su vez
 		                                             # tengan su id
 		                                             # ej: Sala 1 = {
