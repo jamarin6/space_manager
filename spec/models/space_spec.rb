@@ -29,5 +29,7 @@ RSpec.describe Space, type: :model do
       expect(@space.empty_reservation_incidences).to eql(true)
     end
 
+    # continuar con algún test mas x aqui
+
   end
 end
