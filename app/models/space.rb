@@ -4,7 +4,7 @@ class Space < ActiveRecord::Base
 
   # def empty_reservation_incidences
   #   reservations.map { |r| r.update_attributes incidences: nil }.all?
-  # end
+  # end #
 
   def incidences
     reservations.map(&:incidences).compact
