@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Space, type: :model do
-# pending "add some examples to (or delete) #{__FILE__}"
   
   before :each do
     @space = Space.create!(name: "spaceName")
@@ -29,6 +28,8 @@ RSpec.describe Space, type: :model do
       allow(@reservation).to receive(:save) { true }
       expect(@space.empty_reservation_incidences).to eql(true)
     end
+
+    # continuar con algún test mas x aqui
 
   end
 end
