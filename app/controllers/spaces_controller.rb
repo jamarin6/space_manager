@@ -12,7 +12,7 @@ class SpacesController < ApplicationController
 		                                             #                10 => 1
 		                                             #                11 => 2
 		                                             #	              ''   ''
-		                                             # }
+		                                             # }.
 		@reserv.each do |r|
 			@reservations[r.space_id][r.hour] = r.id # y aqui le añadimos la hora de la reserva a la sala correspondiente
 		end
