@@ -14,9 +14,7 @@ class SpacesController < ApplicationController
 		                                             #	              ''   ''
 		                                             # }
 		@reserv.each do |r|
-		#	@reservations[r.space_id] << r.hour     # y aqui le añadimos la hora de la reserva
-			                                        # a la sala correspondiente
-			@reservations[r.space_id][r.hour] = r.id
+			@reservations[r.space_id][r.hour] = r.id # y aqui le añadimos la hora de la reserva a la sala correspondiente
 		end
 
 	end
