@@ -28,13 +28,16 @@ class SpacesController < ApplicationController
 		redirect_to spaces_path	
 	end
 
-	def entry_params
-		params.require(:space).permit(:name, :start_at, :end_at)
-	end
 
 	def destroy
 		@space = current_user.spaces.find params[:id]
 		@space.destroy
 		redirect_to spaces_path
+	end
+
+	private
+	
+	def entry_params
+		params.require(:space).permit(:name, :start_at, :end_at)
 	end
 end
