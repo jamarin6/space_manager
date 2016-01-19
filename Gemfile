@@ -46,7 +46,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'autotest-rails'
-  gem "erb2haml"
+  # gem "erb2haml"
   gem 'quiet_assets'
 end
 
