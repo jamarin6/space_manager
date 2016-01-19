@@ -1,0 +1,35 @@
+<div class="sticky">
+  <nav class="top-bar ancho_header" data-topbar>
+    <ul class="title-area">
+      <li>
+        <div class="sidedar small-1 medium-1 large-1 columns left">&nbsp;</div><a href="/spaces"><img src="/assets/house.png" alt="HTML tutorial" width="42" height="42"></a>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right"> 
+        <% if current_user %>
+
+          <li class="active"><a href="/spaces"><%= current_user.email %></a></li>
+          
+          <li class="has-dropdown">
+            <a href="#">Go to</a>
+            <ul class="dropdown">
+              <li><a href="/spaces">Visuality</a></li>
+              <li><a href="/spaces/new">NewSpace</a></li>
+              <li><a href="/reservations/incidences">Incidences</a></li>
+              <li><%= link_to "Exit", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+
+        <% else %>
+          <li class="active"><a href="/users/sign_in">SignIn</a></li>
+          <li class="active"><a href="/users/sign_up">SignUp</a></li>
+        <% end %>
+        
+      </ul>
+    </section>
+  </nav>
+</div>

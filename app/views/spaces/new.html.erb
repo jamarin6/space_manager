@@ -1,0 +1,23 @@
+<br>
+<br>
+<div class="sidedar large-4 columns left">&nbsp;</div>
+<div class="large-3 columns">
+
+  <h1 class="characters">New Space</h1>
+
+  <%= form_for @space do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, size: 4, :autofocus => true %>
+    <br>
+    <%= f.label :start_at %>
+    <%= f.select :start_at, (0..23).to_a %>
+    <br>
+    <%= f.label :end_at %>
+    <%= f.select :end_at, (0..23).to_a%>
+    <br>
+
+    <%= f.submit 'Save', class: "small round button" %>
+    <%= link_to 'Cancel', spaces_path %>
+  <% end %>
+
+</div>

@@ -1,0 +1,32 @@
+<h1>Listing incidences</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Space</th>
+      <th>Date</th>
+      <th>Body</th>
+      <th>Customer</th>
+      <th>Reservation</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @incidences.order(created_at: :desc).order(:reservation_id).each do |incidence| %>
+      <tr>
+        <td><%= link_to incidence.reservation.space.name, space_reservation_path(space_id: incidence.reservation.space_id, id: incidence.reservation_id) %></td>
+        <td><%= "#{incidence.reservation.date.strftime("%d/%m/%Y")} - " "#{incidence.reservation.hour}:00h" %></td>
+        <td class="red"><%= incidence.body %></td>
+        <td><%= incidence.reservation.customer %></td>
+        <td><%= incidence.reservation.id %></td>
+        <td><%= link_to 'Show', incidence %></td>
+        <td><%= link_to 'Edit', edit_incidence_path(incidence) %></td>
+        <td><%= link_to 'Destroy', incidence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br/>
+<%= link_to "Home", root_path %>
+\- #{link_to "Incidences", incidences_path} - #{link_to "Visuality spaces", spaces_path}

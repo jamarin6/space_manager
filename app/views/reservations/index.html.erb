@@ -1,0 +1,22 @@
+<h1>Listing reservations</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Date</th>
+      <th>Space</th>
+      <th>Hour</th>
+    </tr>
+    <% @reservations.order(:space_id).each do |reservation| %>
+      <tr>
+        <td><%= reservation.customer %></td>
+        <td><%= "#{reservation.date.strftime("%d/%m/%Y")}" %></td>
+        <td class="red"><%= reservation.space_id %></td>
+        <td><%= reservation.hour %></td>
+      </tr>
+    <% end %>
+  </thead>
+</table>
+<br/>
+<%= link_to "Home", root_path %>
+\- #{link_to "reservations", space_reservations_path} - #{link_to "Visuality spaces", spaces_path}

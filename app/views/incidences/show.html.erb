@@ -1,0 +1,14 @@
+<p id="notice">
+  <%= notice %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @incidence.body %>
+</p>
+<p>
+  <strong>Reservation:</strong>
+  <%= @incidence.reservation %>
+</p>
+<%= link_to 'Edit', edit_incidence_path(@incidence) %>
+|
+<%= link_to 'Back', incidences_path %>

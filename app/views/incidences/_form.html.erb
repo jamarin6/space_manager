@@ -1,0 +1,30 @@
+<%= form_for(@incidence) do |f| %>
+  <% if @incidence.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@incidence.errors.count, "error") %>
+        prohibited this incidence from being saved:
+      </h2>
+      <ul>
+        <% @incidence.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :body %>
+    <br/>
+    <%= f.text_field :body, :autofocus => true %>
+  </div>
+  <div class="field" style="display:none;">
+    <%= f.label :reservation_id %>
+    <br/>
+    <%= f.text_field :reservation_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
