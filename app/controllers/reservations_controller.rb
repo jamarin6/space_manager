@@ -31,7 +31,8 @@ class ReservationsController < ApplicationController
 
 	def delete_incidences_space
 		@reservation = Reservation.find(params[:space_id])
-		@reservation.incidences.destroy
+		@reservation.incidences = ""
+		@reservation.save
 		redirect_to spaces_path
 	end
 
