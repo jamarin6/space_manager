@@ -30,7 +30,7 @@
             %li.table-to-right
               %p.characters
                 = space.name
-                \- #{link_to "Delete", space_path(space.id), method: :delete} - #{link_to "DeleteAllIncidencesThisSpace", delete_incidences_space_path(:space_id => space.id), method: :delete, data: {confirm: "Are you sure?"}}
+                \- #{link_to "Delete", space_path(space.id), method: :delete}
                 \- #{link_to "View All Reservations (this Space)", space_reservations_path(space.id)}
               %table.table2
                 %tr
