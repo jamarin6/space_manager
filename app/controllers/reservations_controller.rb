@@ -29,10 +29,9 @@ class ReservationsController < ApplicationController
     # atención al "includes", con el q cargo "reservation" y "space" en la misma query, ya q las uso en la vista
 	end
 
-	def delete_incidence
-		@reservation = Reservation.find(params[:id])
-		@reservation.incidences = ""
-		@reservation.save
+	def delete_incidences_space
+		@reservation = Reservation.find(params[:space_id])
+		@reservation.incidences.destroy
 		redirect_to spaces_path
 	end
 
