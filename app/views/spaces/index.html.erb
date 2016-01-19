@@ -5,7 +5,6 @@
   <%= link_to "Create a new space", new_space_path %>
 <% else %>
   <div class="row">
-
     <% if @day == Date.today %> <!--hacerlo con div.row y div.small-12 etc...-->
 
       <div class="small-12 medium-2 medium-offset-3 large-2 large-offset-3 columns text-center">
@@ -28,17 +27,15 @@
       <div class="small-12 medium-2 large-2 columns text-center"><%= link_to "Next Day>>>", spaces_path(:date => @day+1), :class => "text-center"%></div>
       <div class="medium-3 large-3"></div>
 
-    
     <% end %>
   </div>
-<br><br><br>
+  <br><br><br>
 
   <ul>
     <% @spaces.each do |space| %>
       <li class="table-to-right"> <p class="characters"><%= space.name %> - <%= link_to "Delete", space_path(space.id), method: :delete %> - <%= link_to "DeleteAllIncidencesThisSpace", delete_incidences_space_path(:space_id => space.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
         <table class="table2">
           <tr>
-
             <% space.start_at.upto(space.end_at) do |i| %>
               <% if @reservations[space.id].include?(i) %>
                 <td class="back-red"><%= link_to "info", space_reservation_path(:space_id => space.id, :id => @reservations[space.id][i]), :date => @day, style: 'color:black;' %>  
@@ -48,19 +45,14 @@
               <% end %>
               <br><%= i %>:00 - <%= i+1 %>:00</td>
             <% end %>
-
           </tr>
         </table>
       </li>
-      
     <% end %>
   </ul> 
 
 <% end %>
 
-<br>
-
-<br>
-<br>
+<br><br><br>
 
 <%= link_to "Home", "/" %> - <%= link_to "NewSpace", new_space_path %> - <%= link_to "Incidences", incidences_path %>
