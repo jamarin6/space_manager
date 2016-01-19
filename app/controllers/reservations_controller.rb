@@ -33,7 +33,7 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.find(params[:id])
 		@reservation.incidences = ""
 		@reservation.save
-		redirect_to reservations_incidences_path
+		redirect_to spaces_path
 	end
 
 	# def delete_incidences_space
