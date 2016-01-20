@@ -28,7 +28,7 @@
   </h3>
   <%= button_to "Edit reservation", edit_space_reservation_path(space_id: @reservation.space_id, id: @reservation.id), method: :get, class: "button secondary tiny" %>
   <% if @reservation.incidences.blank? %>
-    <h2>***NO INCIDENCES***</h2>
+    <h2>**NO INCIDENCES**</h2>
   <% else %>
     <table>
       <thead>
