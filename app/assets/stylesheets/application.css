@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require foundation_and_overrides
- 
+ *= require foundation 
  *= require_tree .
  */
 
@@ -18,6 +18,10 @@
 	position:absolute;
 	left:700px;
 	display: inline-block;
+}
+
+.top-bar {
+  background-color: blue !important;
 }
 
 .logo {
