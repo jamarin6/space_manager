@@ -13,7 +13,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @incidences.order(created_at: :desc).order(:reservation_id).each do |incidence| %>
+    <%# @incidences.order(created_at: :desc).order(:reservation_id).each do |incidence| %>
+    <% @incidences.each do |incidence| %>
       <tr>
         <td><%= link_to incidence.reservation.space.name, space_reservation_path(space_id: incidence.reservation.space_id, id: incidence.reservation_id) %></td>
         <td><%= incidence.reservation.date.strftime("%d/%m/%Y")  %> - <%= incidence.reservation.hour %>:00h</td>
