@@ -12,7 +12,11 @@ class ReservationsController < ApplicationController
 
 	def create
 		@space = Space.find(params[:space_id])
-		@space.reservations.create reservation_params
+		if params[:reservation][:incidences_attributes].first[1][:body].blank?
+			@space.reservations.create reservation_params_no_incidence
+		else
+			@space.reservations.create reservation_params
+		end
 		if params[:reservation][:date] == Date.today   # con params xq @day no es visible aqui
 			redirect_to spaces_path
 		else
@@ -63,4 +67,8 @@ class ReservationsController < ApplicationController
 	def reservation_params
 		params.require(:reservation).permit(:customer, :space_id, :hour, :date, incidences_attributes: [:id, :body])
 	end
+	def reservation_params_no_incidence
+		params.require(:reservation).permit(:customer, :space_id, :hour, :date)
+	end
+
 end
