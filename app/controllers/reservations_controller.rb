@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
 	def new
 		space = Space.find(params[:space_id])
 		@reservation = space.reservations.build(:date => (params[:date]), :hour => (params[:hour]))
-    # @incidence = @reservation.incidences.new # esto para la vista de haml, para crear incidencia al crear reserva, local:ok producción:MAL
+    @reservation.incidences.build # para crear incidencia al crear reserva, local:ok producción:MAL
 	end
 
 	def create
@@ -61,6 +61,6 @@ class ReservationsController < ApplicationController
 
 	private
 	def reservation_params
-		params.require(:reservation).permit(:customer, :space_id, :hour, :date, :incidences)
+		params.require(:reservation).permit(:customer, :space_id, :hour, :date, incidences_attributes: [:id, :body])
 	end
 end

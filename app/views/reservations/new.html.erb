@@ -1,12 +1,10 @@
-<br>
-<br>
+<br><br>
 <div class="sidedar large-4 columns left">&nbsp;</div>
 <div class="large-3 columns">
-<h1 class="characters">Create Reserve</h1>
+  <h1 class="characters">Create Reserve</h1>
 
-<h3 class="characters"><%= @reservation.space.name  %></h3>
-<br>
-
+  <h3 class="characters"><%= @reservation.space.name  %></h3>
+  <br>
 
   <%= form_for [@reservation.space, @reservation] do |f| %>
     <%= f.label :customer %>
@@ -18,6 +16,17 @@
     <%= f.label :hour %>
     <%= f.text_field :hour %>
     <br>
+    Incidences:
+    <ul>
+      <%= f.fields_for :incidences do |ff| %>
+        <li>
+          <div class="field">
+            <%= ff.label :body %>
+            <%= ff.text_field :body %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
 
     <%= f.submit 'Save', class: "small round button" %>
     <%= link_to 'Cancel', spaces_path %>

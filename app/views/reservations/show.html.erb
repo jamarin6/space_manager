@@ -48,7 +48,7 @@
               <%= link_to "Edit Incidence", edit_incidence_path(incidence) %>
             </td>
             <td>
-              <%= link_to "Delete Incidence", incidence_path(incidence), method: :delete %>
+              <%= link_to "Delete Incidence", incidence_path(incidence), method: :delete, data: {confirm: "Are you sure?"} %>
             </td>
           </tr>
         <% end %>
