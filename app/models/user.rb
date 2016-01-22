@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
 	def self.ordered_by_email
 		all.sort_by(&:email)
 	end
+
+  # mas validaciones
 end

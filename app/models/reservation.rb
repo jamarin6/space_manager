@@ -3,4 +3,6 @@ class Reservation < ActiveRecord::Base
   has_many :incidences
 
   accepts_nested_attributes_for :incidences
+
+  # mas validaciones
 end
