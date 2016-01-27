@@ -32,7 +32,7 @@
   <br><br><br>
 
   <ul>
-    <% @spaces.each do |space| %>
+    <% @spaces.each do |space| %> <!-- TODO: reestablecer funcionalidad delete incidences -->
       <li class="table-to-right"> <p class="characters"><%= space.name %> - <%= link_to "Delete", space_path(space.id), method: :delete %> - <%= link_to "DeleteAllIncidencesThisSpace", delete_incidences_space_path(:space_id => space.id), method: :delete, data: {confirm: "Are you sure?"} %></p>
         <table class="table2">
           <tr>
